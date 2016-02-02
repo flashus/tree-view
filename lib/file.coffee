@@ -49,6 +49,7 @@ class File
     return unless repo?
 
     newStatus = null
+    ###
     if repo.isPathIgnored(@path)
       newStatus = 'ignored'
     else
@@ -57,6 +58,8 @@ class File
         newStatus = 'modified'
       else if repo.isStatusNew(status)
         newStatus = 'added'
+    ###
+    newStatus = 'modified'
 
     if newStatus isnt @status
       @status = newStatus
